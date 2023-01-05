@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <!-- v-on대신에 @로 단축키로 사용가능하다. -->
+      <!-- 이벤트리스너 추가가 쉬워줌. -->
+      <button @click="add(10)">Add 10</button>
+      <button v-on:click="reduce(5)">Subtract 5</button>
+      <p>Result: {{ counter }}</p>
+      <!-- name property를 vue에서 관리함. -->
+      <!-- v-on:input, v-bind:value의 축약어라고 할수 있다. -->
+      <!-- 양방향통신이라고 할수 잇다.  -->
+      <!-- 입력요소에서 나오는 이벤트를 수신함과 동시에, value속성 미쳐 value property값을 입력요소에 보내기 때문. -->
+      <!-- :는 v-bind의 축약어이다, v-model의 축약어는 존재하지 않는다. -->
+      <input type="text" :value="..." v-model="name" />
+      <input type="text" v-model="lastname" />
+      <button v-on:click="resetInput">Reset Input</button>
+      <!-- name이 변경된 경우에만 재 평가되어 랜더링 됨. -->
+      <!-- 하지만 html코드가 길어짐 이로인해서 'Computed(연산) property가 나오게 됨.' -->
+      <!-- Vue가 의존성을 인식하고, 의존성 중 하나가 변경된 경우에만 재 실행한다. -->
+      <!-- <p>Your Name:{{name+ '' + 'bae'}}</p> -->
+      <p>Your Name:{{ fullname }}</p>
+      <!-- <p>Your Name: {{ outputFullname() }}</p> -->
+    </section>
+  </body>
+</html>

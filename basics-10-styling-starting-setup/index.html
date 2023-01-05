@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <!-- 일반클래스 demo, 동적클래스바인딩 :demo -->
+      <!-- vue가 동적 클래스 바인딩의 결과를 평가 한 후하드코딩된 클래스와 병합하게 된다. -->
+      <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
+      <!-- div는 여러개의 클래스속성을 가질수 있따. 근데 많이 할당하면 -->
+      <!-- 하나의 동적클래스만 할당해도 된다. 다만 이러한경우에는 객체가 아닌 '배열'을 전달해야한다. -->
+      <!--  -->
+      <div
+        :class="['demo', {active: boxBSelected}]"
+        @click="boxSelected('B')"
+      ></div>
+      <div
+        class="demo"
+        :class="{demo:true, active: boxCSelected}"
+        @click="boxSelected('C')"
+      ></div>
+    </section>
+  </body>
+</html>
